@@ -1,7 +1,5 @@
 module McConstant
-
 using Memoize
-
 export mc_possible, mc_constant, mc_solver, mc_order
 
 """
@@ -61,8 +59,6 @@ function mc_constant()::Int
     0  # this shouldn't happen
 end
 
-
-
 """
     mc_solver(n::Int)::Tuple{Int,Int,Int}
 
@@ -105,7 +101,6 @@ julia> mc_solver(44)
     error("This can't happen")
 end
 
-
 """
     mc_order(n::Int)
 
@@ -116,7 +111,6 @@ Explain how to purchase `n` McMuffins.
 julia> mc_order(44)
 Order 1 six-piece, 2 nine-piece, and 1 twenty-piece
 ```
-
 """
 function mc_order(n::Int)
     if !mc_possible(n)
@@ -127,8 +121,5 @@ function mc_order(n::Int)
     a, b, c = mc_solver(n)
     println("Order $a six-piece, $b nine-piece, and $c twenty-piece")
 end
-
-
-
 
 end # module McConstant
