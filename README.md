@@ -30,7 +30,7 @@ This means that it is impossible to purchase exactly 43 McNuggets, but for any v
 ## Why?
 
 Because I was bored. Also, I'm not sure that six, nine, and twenty piece servings are
-correct. I think this was correct at some point, but may not any more?
+correct. I think this was correct at some point, but may not be any more?
 
 ## To Do
 
