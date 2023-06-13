@@ -1,5 +1,5 @@
-# McConstant
-Compute the largest number of McNuggets that cannot be purchased.
+# `McConstant`
+What is the largest number of McNuggets that cannot be purchased?
 
 ## Buying McNuggets 
 
@@ -8,8 +8,10 @@ it is possible (for example) to purchase exactly 21 McNuggets (buy 6+6+9) but it
 is not possible to purchase exactly 22 McNuggets. 
 
 The function `mc_possible` returns `true` if it is possible to purchase that quantity
-of McNuggest, and false otherwise:
+of McNuggets, and false otherwise:
 ```
+julia> using McConstant
+
 julia> mc_possible(21)
 true
 
