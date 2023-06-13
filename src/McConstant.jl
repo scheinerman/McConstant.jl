@@ -2,7 +2,7 @@ module McConstant
 
 using Memoize
 
-export mc_possible, mc_constant
+export mc_possible, mc_constant, mc_solver, mc_order
 
 """
     mc_possible(n::Int)::Bool
@@ -60,6 +60,46 @@ function mc_constant()::Int
     end
     0  # this shouldn't happen
 end
+
+
+
+function mc_solver(n::Int)::Tuple{Int,Int,Int}
+    if !mc_possible(n)
+        error("Cannot order $n McNuggets")
+    end
+    if n == 0
+        return 0, 0, 0
+    end
+
+    if mc_possible(n - 20)
+        a, b, c = mc_solver(n - 20)
+        return a, b, c + 1
+    end
+
+    if mc_possible(n - 9)
+        a, b, c = mc_solver(n - 9)
+        return a, b + 1, c
+    end
+
+    if mc_possible(n - 6)
+        a, b, c = mc_solver(n - 6)
+        return a + 1, b, c
+    end
+
+    error("This can't happen")
+end
+
+
+function mc_order(n::Int)
+    if !mc_possible(n)
+        println("It is not possible to order $n McNuggets")
+    end
+
+    a, b, c = mc_solver(n)
+    println("Order $a six-piece, $b nine-piece, and $c twenty-piece")
+end
+
+
 
 
 end # module McConstant
