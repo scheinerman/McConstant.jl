@@ -79,7 +79,7 @@ julia> mc_solver(44)
 (1, 2, 1)
 ```
 """
-function mc_solver(n::Int)::Tuple{Int,Int,Int}
+@memoize function mc_solver(n::Int)::Tuple{Int,Int,Int}
     if !mc_possible(n)
         error("Cannot order $n McNuggets")
     end

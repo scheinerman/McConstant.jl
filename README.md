@@ -57,3 +57,12 @@ ERROR: Cannot order 43 McNuggets
 
 Because I was bored. Also, I'm not sure that six, nine, and twenty piece servings are
 correct. I think this was correct at some point, but maybe not any more?
+
+## Bugs
+
+This code can't help you if you want to order millions of McNuggets:
+```
+julia> mc_order(1_000_000)
+ERROR: StackOverflowError:
+```
+But in this case, you have a more serious problem than a stack overflow. 
