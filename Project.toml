@@ -1,7 +1,4 @@
 name = "McConstant"
 uuid = "34dd1bce-389d-4960-b0ad-2aafb46ab64b"
 authors = ["Ed Scheinerman <ers@jhu.edu>"]
-version = "0.0.1"
-
-[deps]
-Memoize = "c03570c3-d221-55d1-a50c-7939bbd78826"
+version = "0.0.2"
