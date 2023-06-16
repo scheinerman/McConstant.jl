@@ -2,3 +2,9 @@ name = "McConstant"
 uuid = "34dd1bce-389d-4960-b0ad-2aafb46ab64b"
 authors = ["Ed Scheinerman <ers@jhu.edu>"]
 version = "0.0.2"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]

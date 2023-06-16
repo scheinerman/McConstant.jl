@@ -53,3 +53,22 @@ If McNuggets are sold in packages of 5 and 9, then it is possible to purchase 20
 
 Further, it is impossible to purchase 31 McNuggets, but it is possible to purchase
 any amount greater than 31. 
+
+## Requirements and errors
+
+The parameters given to `mc_constant` must all be greater than `1`. Note that if `1` is a parameter, then it is possible to purchase any number of McNuggets.
+
+The greatest common divisor of the parameters must be `1`. Otherwise, if 
+the GCD is `d`, then all McNugget purchases would be a multiple of `d` and
+there would be no largest number of McNuggets that cannot be purchased.
+
+```
+julia> mc_constant(0,4,8,11)
+ERROR: Nugget sizes must be positive
+
+julia> mc_constant(1,2,3)
+ERROR: Nugget sizes must all be greater than 1
+
+julia> mc_constant(6,14)
+ERROR: Nugget sizes have a common divisor 2; gcd should be 1
+```

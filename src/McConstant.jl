@@ -87,7 +87,7 @@ function mc_constant(nugs...)::Int
     end
 
     if minimum(nugs) == 1
-        error("Nugget portion sizes must all be greater than 1")
+        error("Nugget sizes must all be greater than 1")
     end
 
     n = 1
