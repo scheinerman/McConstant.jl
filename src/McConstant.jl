@@ -1,4 +1,5 @@
 module McConstant
+using Memoize
 export mc_possible, mc_constant
 
 
@@ -17,9 +18,11 @@ end
 
 """
     mc_possible(n::Int, nugs...)::Bool
+    mc_possible(n::Int)::Bool
 
 Determine if it is possible to purchase `n` McNuggets given
-the serving sizes specified in `nugs`.
+the serving sizes specified in `nugs`. If no nugget sizes are 
+given, this is equivalent to `mc_possible(n,6,9,20)`.
 
 # Example
 ```
@@ -30,7 +33,7 @@ julia> mc_possible(44,6,9,20)
 true
 ```
 """
-function mc_possible(n::Int, nugs...)::Bool
+@memoize function mc_possible(n::Int, nugs...)::Bool
 
 
     if length(nugs) != length(unique(nugs))
@@ -48,7 +51,7 @@ end
 
 mc_possible(n::Int) = mc_possible(n, 6, 9, 20)
 
-function mc_possible_work(n::Int, nugs...)::Bool
+@memoize function mc_possible_work(n::Int, nugs...)::Bool
     if n == 0
         return true
     end
@@ -66,7 +69,6 @@ function mc_possible_work(n::Int, nugs...)::Bool
 end
 
 
-
 function streak(n::Int, nugs...)::Bool
     s_min = minimum(nugs)
     list = [mc_possible(k, nugs...) for k = n:n+s_min-1]
@@ -75,9 +77,10 @@ end
 
 """
     mc_constant()::Int
+    mc_constant(nugs...)::Int
 
 Calculate the McConstant, i.e., the largest number of Chicken McNuggets
-that one cannot purchase.
+that one cannot purchase. With no arguments, return `mc_constant(6,9,20)`.
 """
 function mc_constant(nugs...)::Int
 
