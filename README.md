@@ -54,7 +54,7 @@ If McNuggets are sold in packages of 5 and 9, then it is possible to purchase 20
 Further, it is impossible to purchase 31 McNuggets, but it is possible to purchase
 any amount greater than 31. 
 
-## Requirements and errors
+## Requirements and Errors
 
 The parameters given to `mc_constant` must all be greater than `1`. Note that if `1` is a parameter, then it is possible to purchase any number of McNuggets.
 
